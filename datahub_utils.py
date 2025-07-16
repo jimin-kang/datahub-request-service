@@ -68,7 +68,6 @@ def search_data_product():
     https://docs.datahub.com/docs/api/graphql/getting-started#search
     https://forum.datahubproject.io/t/using-datahub-python-sdk-to-perform-graphql-search-operations/1384/3
     """
-
     
     # Initialize the DataHubGraph client
     # List of config attributes: https://github.com/datahub-project/datahub/blob/master/metadata-ingestion/src/datahub/ingestion/graph/client.py#L227
@@ -115,26 +114,44 @@ def search_data_product():
 def modify_data_product():
     """
     Modify existing data products in DataHub.
-    Use GraphQL mutations.
+    
+    Methods:
+    - GraphQL mutations
+    - Patch updates (https://docs.datahub.com/docs/advanced/patch)
 
     TO DO: 
-    - update product status via custom property?
+    - create structured property to track lifecycle status (https://docs.datahub.com/docs/features/feature-guides/properties/create-a-property)
+    - update structured property accordingly
     """
-    # update Domains
-    from datahub.metadata.urns import DatasetUrn, DomainUrn
-    from datahub.sdk import DataHubClient
 
-    client = DataHubClient.from_env()
+    # ADD & REMOVE OWNERS
+    # Inlined from /metadata-ingestion/examples/library/dataset_add_owner_patch.py
+    from datahub.emitter.mce_builder import make_dataset_urn, make_group_urn, make_user_urn
+    from datahub.ingestion.graph.client import DataHubGraph, DataHubGraphConfig
+    from datahub.metadata.schema_classes import OwnerClass, OwnershipTypeClass
+    from datahub.specific.dataproduct import DataProductPatchBuilder
 
-    dataset = client.entities.get(DatasetUrn(platform="snowflake", name="example_dataset"))
+    # Create DataHub Client
+    datahub_client = DataHubGraph(DataHubGraphConfig(server=gms_endpoint))
 
-    # if you don't know the domain id, you can get it from resolve client by name
-    # domain_urn = client.resolve.domain(name="marketing")
+    # Get data product
+    # dataset_urn = make_dataset_urn(
+    #     platform="snowflake", name="fct_users_created", env="PROD"
+    # )
+    dataproduct_urn = "urn:li:dataProduct:dd44e5b7-8680-4ef2-bd11-c6ba3fcac561" # Financial dashboards
 
-    # NOTE : This will overwrite the existing domain
-    dataset.set_domain(DomainUrn(id="marketing"))
+    # Create Dataset Patch to Add + Remove Owners
+    patch_builder = DataProductPatchBuilder(dataproduct_urn)
+    patch_builder.add_owner(
+        OwnerClass(make_user_urn("jimin-kang"), OwnershipTypeClass.TECHNICAL_OWNER)
+    )
+    patch_builder.remove_owner(make_group_urn("group-to-remove-id"))
+    patch_mcps = patch_builder.build()
 
-    client.entities.update(dataset)
+    # Emit Dataset Patch
+    for patch_mcp in patch_mcps:
+        datahub_client.emit(patch_mcp)
+
     
     # update Tags
 
