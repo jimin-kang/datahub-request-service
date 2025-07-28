@@ -1,0 +1,23 @@
+# custom_action.yaml
+name: "custom_action_test"
+source:
+  type: "kafka"
+  config:
+    connection:
+      bootstrap: ${KAFKA_BOOTSTRAP_SERVER:-localhost:9092}
+      schema_registry_url: ${SCHEMA_REGISTRY_URL:-http://localhost:8081}
+    # TO DO: add entity info??
+action:
+  type: "custom_action:CustomAction"
+  config:
+    urn_prefix: "urn:li:dataProduct"  # Filter optional
+    # recipient: "jiminkangtest@gmail.com"
+    # sender_email: "jiminkangtest@gmail.com"
+    # sender_password: "${EMAIL_PASSWORD}"  # Use env var
+    # smtp_server: "smtp.gmail.com"
+    # smtp_port: 465
+
+# Add config to listen for changes on specific entity/data product
+  # Example Data Product URNs:
+    # urn:li:dataProduct:trident_data_product
+    # urn:li:dataProduct:marketing_dashboard
