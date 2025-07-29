@@ -1,6 +1,6 @@
 ***FastAPI: Miscellaneous Notes***
 async: signals python function to be run *asynchronously*, i.e. run in the background
-* equivalent to Golang go keyword to signal goroutine
+* equivalent to Golang **go** keyword to signal goroutine
 
 **Request Body**
 Clients may need to send data to your API - they send this data in a *request body*.  

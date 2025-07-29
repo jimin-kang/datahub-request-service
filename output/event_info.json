@@ -1,0 +1,68 @@
+{
+    'entityType': 'dataProduct', 
+    'entityUrn': 'urn:li:dataProduct:trident_data_product', 
+    'changeType': 'UPSERT', 
+    'aspectName': 'structuredProperties', 
+    'aspect': {
+        'value': '{
+            "properties": [
+                {
+                    "lastModified": {
+                        "actor": "urn:li:corpuser:datahub",
+                        "time": 1753762641046
+                    },
+                    "created": {
+                        "actor": "urn:li:corpuser:datahub",
+                        "time": 1753565602864
+                    },
+                    "values": [
+                        {
+                            "string": "Draft"
+                        }
+                    ],
+                    "propertyUrn": "urn:li:structuredProperty:2eb3a2e7-6c4d-47f3-aed2-c59aa8c8bb42"
+                }
+            ]
+        }', 
+        'contentType': 'application/json'
+    }, 
+    'systemMetadata': {
+        'lastObserved': 1753762641053, 'runId': 'no-run-id-provided', 'lastRunId': 'no-run-id-provided', 'properties': {
+            'telemetryLog': 'false', 'eventSource': 'GRAPHQL', 'telemetryQueueSpanId': 'fb6af2c9dc77120a', 'telemetryEnqueuedAt': '1753762641096', 'sourceIP': '172.18.0.9', 'telemetryTraceId': '00063b09af3d10181d4a310ac81d0dc7'
+        }, 
+        'version': '5'
+    }, 
+    'previousAspectValue': {
+        'value': '{
+            "properties": [
+                {
+                    "lastModified": {
+                        "actor": "urn:li:corpuser:datahub",
+                        "time": 1753762444965
+                    },
+                    "created": {
+                        "actor": "urn:li:corpuser:datahub",
+                        "time": 1753565602864
+                    },
+                    "propertyUrn": "urn:li:structuredProperty:2eb3a2e7-6c4d-47f3-aed2-c59aa8c8bb42",
+                    "values": [
+                        {
+                            "string": "Review"
+                        }
+                    ]
+                }
+            ]
+        }', 
+        'contentType': 'application/json'
+    }, 
+    'previousSystemMetadata': {
+        'lastObserved': 1753762445001, 'runId': 'no-run-id-provided', 'lastRunId': 'no-run-id-provided', 
+        'properties': {
+            'eventSource': 'GRAPHQL', 'isNoOp': 'false', 'sourceIP': '172.18.0.9', 'telemetryTraceId': '00063b09a38d2280a1a3a1b4a66d1f71'
+        }, 
+        'version': '4'
+    }, 
+    'created': {
+        'time': 1753762641051, 'actor': 'urn:li:corpuser:datahub'
+    }
+}

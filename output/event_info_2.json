@@ -1,0 +1,28 @@
+{
+    "event_type": "MetadataChangeLogEvent_v1",
+    "event": {
+        "entityType": "dataProduct",
+        "entityUrn": "urn:li:dataProduct:trident_data_product",
+        "changeType": "UPSERT",
+        "aspectName": "structuredProperties",
+        "aspect": {
+            "value": "{\"properties\":[{\"lastModified\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753762698830},\"created\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753565602864},\"values\":[{\"string\":\"Review\"}],\"propertyUrn\":\"urn:li:structuredProperty:2eb3a2e7-6c4d-47f3-aed2-c59aa8c8bb42\"},{\"lastModified\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753763863277},\"created\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753763863277},\"values\":[{\"string\":\"To Do\"}],\"propertyUrn\":\"urn:li:structuredProperty:68d82329-8fcc-4692-9d88-084e0db4933b\"},{\"lastModified\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753765303273},\"created\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753763866835},\"values\":[{\"string\":\"To Do\"}],\"propertyUrn\":\"urn:li:structuredProperty:e31925a0-1cb0-444d-9ead-6f00f5e35b54\"},{\"lastModified\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753763869754},\"created\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753763869754},\"values\":[{\"string\":\"To Do\"}],\"propertyUrn\":\"urn:li:structuredProperty:fed30a39-35b8-45db-b364-7454f3c02001\"}]}",
+            "contentType": "application/json"
+        },
+        "previousAspectValue": {
+            "value": "{\"properties\":[{\"lastModified\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753762698830},\"created\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753565602864},\"propertyUrn\":\"urn:li:structuredProperty:2eb3a2e7-6c4d-47f3-aed2-c59aa8c8bb42\",\"values\":[{\"string\":\"Review\"}]},{\"lastModified\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753763863277},\"created\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753763863277},\"propertyUrn\":\"urn:li:structuredProperty:68d82329-8fcc-4692-9d88-084e0db4933b\",\"values\":[{\"string\":\"To Do\"}]},{\"lastModified\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753765230172},\"created\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753763866835},\"propertyUrn\":\"urn:li:structuredProperty:e31925a0-1cb0-444d-9ead-6f00f5e35b54\",\"values\":[{\"string\":\"In Progress\"}]},{\"lastModified\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753763869754},\"created\":{\"actor\":\"urn:li:corpuser:datahub\",\"time\":1753763869754},\"propertyUrn\":\"urn:li:structuredProperty:fed30a39-35b8-45db-b364-7454f3c02001\",\"values\":[{\"string\":\"To Do\"}]}]}",
+            "contentType": "application/json"
+        },
+        "created": {
+            "time": 1753765303277,
+            "actor": "urn:li:corpuser:datahub"
+        }
+    },
+    "meta": {
+        "kafka": {
+            "topic": "MetadataChangeLog_Versioned_v1",
+            "offset": 666,
+            "partition": 0
+        }
+    }
+}
